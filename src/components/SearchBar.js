@@ -1,7 +1,6 @@
 import React from 'react'
 import { View, StyleSheet, Text, TextInput } from 'react-native'
 import { Octicons } from '@expo/vector-icons'
-import { set } from 'react-native-reanimated'
 
 const SearchBar = ({ query, onQueryChanged, onSubmit }) => {
   return (
