@@ -8,7 +8,7 @@ const SearchBar = ({ query, onQueryChanged, onSubmit }) => {
       <Octicons name="search" style={styles.IconStyle} />
       <TextInput
         value={query}
-        onChangeText={onQueryChanged}
+        onChangeText={text => onQueryChanged(text)}
         onEndEditing={onSubmit}
         autoCapitalize="none"
         autoCorrect={false}

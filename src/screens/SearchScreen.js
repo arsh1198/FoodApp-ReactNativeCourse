@@ -1,43 +1,34 @@
-import React, { useState, useEffect } from 'react'
-import { View, StyleSheet, Text, ToastAndroid } from 'react-native'
-import zomato from '../api/zomato'
+import React, { useState } from 'react'
+import { View, StyleSheet, Text } from 'react-native'
 import SearchBar from '../components/SearchBar'
+import useResult from '../hooks/useResult'
+import HorizontalList from '../components/HorizontalList'
 
 const Search = () => {
   const [query, setQuery] = useState('')
-  const [results, setResults] = useState([])
-  const [error, setError] = useState('')
+  const [searchApi, results, error] = useResult()
 
-  const searchApi = async searchQuery => {
-    try {
-      const response = await zomato.get('/search', {
-        params: {
-          entity_id: 12,
-          entity_type: 'city',
-          q: searchQuery
-        }
-      })
-      setResults(response.data.restaurants)
-    } catch (e) {
-      setError('oops! Something went wrong')
-    }
+  const filterResultsByPrice = price => {
+    return results.filter(result => {
+      return result.restaurant.price_range === price
+    })
   }
-
-  useEffect(() => {
-    searchApi('chicken roll')
-  }, [])
 
   return (
     <View style={styles.ContainerStyle}>
       <SearchBar
         query={query}
-        onQueryChanged={() => {
-          setQuery(query)
+        onQueryChanged={text => {
+          console.log(text)
+          setQuery(text)
         }}
-        onSubmit={searchApi}
+        onSubmit={() => searchApi(query)}
       />
       {error ? <Text>{error}</Text> : null}
       <Text>We have found {results.length} results</Text>
+      <HorizontalList results={filterResultsByPrice(1)} title="first" />
+      <HorizontalList results={filterResultsByPrice(2)} title="second" />
+      <HorizontalList results={filterResultsByPrice(3)} title="third" />
     </View>
   )
 }
