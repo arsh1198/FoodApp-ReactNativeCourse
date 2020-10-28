@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, StyleSheet, Text, TextInput } from 'react-native'
 import { FlatList } from 'react-native-gesture-handler'
+import ResultDetails from './ResultDetails'
 
 const HorizontalList = ({ title, results }) => {
   return (
@@ -9,21 +10,18 @@ const HorizontalList = ({ title, results }) => {
       <FlatList
         horizontal
         showsHorizontalScrollIndicator={false}
-        keyExtractor={results => results.id}
+        keyExtractor={results => results.restaurant.id}
         data={results}
         renderItem={({ item }) => {
-          return <Text>{item.restaurant.name}</Text>
+          return <ResultDetails result={item} />
         }}
       />
-
-      <Text>Results: {results.length}</Text>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
   heading: {
-    fontSize: 18,
     fontWeight: 'bold'
   }
 })
