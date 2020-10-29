@@ -12,7 +12,7 @@ const SearchBar = ({ query, onQueryChanged, onSubmit }) => {
         onEndEditing={onSubmit}
         autoCapitalize="none"
         autoCorrect={false}
-        placeholder="Search a Restraunt"
+        placeholder="Restaurant or a Dish"
         style={styles.TextInputStyle}
       ></TextInput>
     </View>

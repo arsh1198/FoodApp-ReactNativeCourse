@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Image, Text, StyleSheet } from 'react-native'
+import { AntDesign } from '@expo/vector-icons'
 
 const ResultDetails = ({ result }) => {
   return (
@@ -8,10 +9,11 @@ const ResultDetails = ({ result }) => {
         source={{ uri: result.restaurant.featured_image }}
         style={styles.image}
       />
-      <View style={{ marginTop: 5 }}>
+      <View style={{ marginTop: 5, marginLeft: 2 }}>
         <Text style={styles.name}>{result.restaurant.name}</Text>
         <Text>
-          {result.restaurant.user_rating.aggregate_rating} Stars,{' '}
+          {result.restaurant.user_rating.aggregate_rating}{' '}
+          <AntDesign name="star" style={{ color: '#ffde00' }} />,{' '}
           {result.restaurant.all_reviews_count} Ratings
         </Text>
       </View>
@@ -26,6 +28,7 @@ const styles = StyleSheet.create({
     borderRadius: 4
   },
   name: {
+    fontSize: 16,
     fontWeight: 'bold'
   }
 })

@@ -3,6 +3,7 @@ import { View, StyleSheet, Text } from 'react-native'
 import SearchBar from '../components/SearchBar'
 import useResult from '../hooks/useResult'
 import HorizontalList from '../components/HorizontalList'
+import { ScrollView } from 'react-native-gesture-handler'
 
 const Search = () => {
   const [query, setQuery] = useState('')
@@ -26,21 +27,23 @@ const Search = () => {
       />
       {error ? <Text>{error}</Text> : null}
       <Text style={{ marginTop: 5 }}>{results.length} results found!</Text>
-      <HorizontalList
-        style={styles.HorizontalList}
-        results={filterResultsByPrice(1)}
-        title="Pocket Friendly"
-      />
-      <HorizontalList
-        style={styles.HorizontalList}
-        results={filterResultsByPrice(2)}
-        title="Bit Pricier"
-      />
-      <HorizontalList
-        style={styles.HorizontalList}
-        results={filterResultsByPrice(3)}
-        title="Big Spender"
-      />
+      <ScrollView>
+        <HorizontalList
+          style={styles.HorizontalList}
+          results={filterResultsByPrice(1)}
+          title="Pocket Friendly"
+        />
+        <HorizontalList
+          style={styles.HorizontalList}
+          results={filterResultsByPrice(2)}
+          title="Bit Pricier"
+        />
+        <HorizontalList
+          style={styles.HorizontalList}
+          results={filterResultsByPrice(3)}
+          title="Big Spender"
+        />
+      </ScrollView>
     </View>
   )
 }
@@ -51,7 +54,8 @@ const styles = StyleSheet.create({
     height: '100%',
     width: '100%',
     paddingHorizontal: 15,
-    paddingVertical: 10
+    paddingVertical: 10,
+    flex: 1
   },
   HorizontalList: {
     padding: 20
