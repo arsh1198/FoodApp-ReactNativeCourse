@@ -5,7 +5,7 @@ import ResultDetails from './ResultDetails'
 
 const HorizontalList = ({ title, results }) => {
   return (
-    <View>
+    <View style={{ paddingVertical: 10 }}>
       <Text style={styles.heading}>{title}</Text>
       <FlatList
         horizontal
@@ -22,7 +22,9 @@ const HorizontalList = ({ title, results }) => {
 
 const styles = StyleSheet.create({
   heading: {
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    fontSize: 20,
+    marginBottom: 7
   }
 })
 

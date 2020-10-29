@@ -25,10 +25,22 @@ const Search = () => {
         onSubmit={() => searchApi(query)}
       />
       {error ? <Text>{error}</Text> : null}
-      <Text>We have found {results.length} results</Text>
-      <HorizontalList results={filterResultsByPrice(1)} title="first" />
-      <HorizontalList results={filterResultsByPrice(2)} title="second" />
-      <HorizontalList results={filterResultsByPrice(3)} title="third" />
+      <Text style={{ marginTop: 5 }}>{results.length} results found!</Text>
+      <HorizontalList
+        style={styles.HorizontalList}
+        results={filterResultsByPrice(1)}
+        title="Pocket Friendly"
+      />
+      <HorizontalList
+        style={styles.HorizontalList}
+        results={filterResultsByPrice(2)}
+        title="Bit Pricier"
+      />
+      <HorizontalList
+        style={styles.HorizontalList}
+        results={filterResultsByPrice(3)}
+        title="Big Spender"
+      />
     </View>
   )
 }
@@ -38,6 +50,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF',
     height: '100%',
     width: '100%',
+    paddingHorizontal: 15,
+    paddingVertical: 10
+  },
+  HorizontalList: {
     padding: 20
   }
 })
