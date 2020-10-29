@@ -24,15 +24,16 @@ const styles = StyleSheet.create({
     display: 'flex',
     height: 50,
     backgroundColor: '#F0EEEE',
-    borderRadius: 5,
+    borderRadius: 10,
     flexDirection: 'row'
   },
   TextInputStyle: {
     flex: 1,
-    fontSize: 18
+    fontSize: 18,
+    fontWeight: 'bold'
   },
   IconStyle: {
-    fontSize: 23,
+    fontSize: 20,
     alignSelf: 'center',
     marginLeft: 15,
     marginHorizontal: 20

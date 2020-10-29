@@ -15,7 +15,11 @@ const HorizontalList = ({ title, results, navigation }) => {
         data={results}
         renderItem={({ item }) => {
           return (
-            <TouchableOpacity onPress={() => navigation.navigate('Reviews')}>
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate('Reviews', { id: item.restaurant.id })
+              }
+            >
               <ResultDetails result={item} />
             </TouchableOpacity>
           )
@@ -29,7 +33,7 @@ const styles = StyleSheet.create({
   heading: {
     fontWeight: 'bold',
     fontSize: 20,
-    marginBottom: 7
+    paddingVertical: 10
   }
 })
 

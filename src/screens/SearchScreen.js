@@ -17,32 +17,23 @@ const Search = () => {
 
   return (
     <View style={styles.ContainerStyle}>
-      <SearchBar
-        query={query}
-        onQueryChanged={text => {
-          console.log(text)
-          setQuery(text)
-        }}
-        onSubmit={() => searchApi(query)}
-      />
+      <View style={{ marginRight: 20, marginBottom: 15 }}>
+        <SearchBar
+          query={query}
+          onQueryChanged={text => {
+            setQuery(text)
+          }}
+          onSubmit={() => searchApi(query)}
+        />
+      </View>
       {error ? <Text>{error}</Text> : null}
-      <Text style={{ marginTop: 5 }}>{results.length} results found!</Text>
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <HorizontalList
-          style={styles.HorizontalList}
           results={filterResultsByPrice(1)}
           title="Pocket Friendly"
         />
-        <HorizontalList
-          style={styles.HorizontalList}
-          results={filterResultsByPrice(2)}
-          title="Bit Pricier"
-        />
-        <HorizontalList
-          style={styles.HorizontalList}
-          results={filterResultsByPrice(3)}
-          title="Big Spender"
-        />
+        <HorizontalList results={filterResultsByPrice(2)} title="Bit Pricier" />
+        <HorizontalList results={filterResultsByPrice(3)} title="Big Spender" />
       </ScrollView>
     </View>
   )
@@ -53,13 +44,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF',
     height: '100%',
     width: '100%',
-    paddingHorizontal: 15,
-    paddingVertical: 10,
+    paddingVertical: 15,
+    paddingStart: 15,
     flex: 1
   },
-  HorizontalList: {
-    padding: 20
-  }
+  HorizontalList: {}
 })
 
 export default Search
