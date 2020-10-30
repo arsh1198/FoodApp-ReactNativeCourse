@@ -3,6 +3,7 @@ import zomato from '../api/zomato'
 
 export default () => {
   const [results, setResults] = useState([])
+  const [reviews, setReviews] = useState([])
   const [error, setError] = useState('')
 
   const searchApi = async searchQuery => {
@@ -20,9 +21,22 @@ export default () => {
     }
   }
 
+  const reviewsApi = async id => {
+    try {
+      const response = await zomato.get('/reviews', {
+        params: {
+          res_id: id
+        }
+      })
+      setReviews(response.data.user_reviews)
+    } catch (e) {
+      setError('oops! Something went wrong')
+    }
+  }
+
   useEffect(() => {
     searchApi('chicken')
   }, [])
 
-  return [searchApi, results, error]
+  return [searchApi, reviewsApi, results, reviews, error]
 }

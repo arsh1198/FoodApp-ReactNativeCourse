@@ -7,7 +7,7 @@ import { ScrollView } from 'react-native-gesture-handler'
 
 const Search = () => {
   const [query, setQuery] = useState('')
-  const [searchApi, results, error] = useResult()
+  const [searchApi, , results, , error] = useResult()
 
   const filterResultsByPrice = price => {
     return results.filter(result => {

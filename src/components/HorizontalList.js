@@ -17,7 +17,9 @@ const HorizontalList = ({ title, results, navigation }) => {
           return (
             <TouchableOpacity
               onPress={() =>
-                navigation.navigate('Reviews', { id: item.restaurant.id })
+                navigation.navigate('Reviews', {
+                  id: item.restaurant.id.toString()
+                })
               }
             >
               <ResultDetails result={item} />
