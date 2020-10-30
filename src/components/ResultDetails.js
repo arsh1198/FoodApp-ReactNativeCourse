@@ -11,12 +11,15 @@ const ResultDetails = ({ result }) => {
       />
       <View style={{ marginTop: 5, marginLeft: 2 }}>
         <Text style={styles.name}>{result.restaurant.name}</Text>
-        <View style={{ flexDirection: 'row', marginTop: 4 }}>
-          <Text style={{ fontWeight: 'bold', fontSize: 12 }}>
+        <View
+          style={{ flexDirection: 'row', marginTop: 4, alignItems: 'center' }}
+        >
+          <Text style={{ fontWeight: 'bold' }}>
             {result.restaurant.user_rating.aggregate_rating}{' '}
-            <AntDesign name="star" style={{ color: '#ffde00' }} /> ·{' '}
+            <AntDesign name="star" style={{ color: '#f5bc42', fontSize: 16 }} />{' '}
+            ·{' '}
           </Text>
-          <Text style={{ fontSize: 12 }}>
+          <Text style={{ color: 'grey' }}>
             {result.restaurant.all_reviews_count} Ratings
           </Text>
         </View>
@@ -33,7 +36,7 @@ const styles = StyleSheet.create({
     marginTop: 4
   },
   name: {
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: 'bold'
   }
 })

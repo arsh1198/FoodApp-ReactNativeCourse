@@ -25,7 +25,8 @@ export default () => {
     try {
       const response = await zomato.get('/reviews', {
         params: {
-          res_id: id
+          res_id: id,
+          count: 20
         }
       })
       setReviews(response.data.user_reviews)

@@ -12,7 +12,7 @@ const SearchBar = ({ query, onQueryChanged, onSubmit }) => {
         onEndEditing={onSubmit}
         autoCapitalize="none"
         autoCorrect={false}
-        placeholder="Restaurant or a Dish"
+        placeholder=" Search for a Restaurant or a Dish..."
         style={styles.TextInputStyle}
       ></TextInput>
     </View>
@@ -24,13 +24,12 @@ const styles = StyleSheet.create({
     display: 'flex',
     height: 50,
     backgroundColor: '#F0EEEE',
-    borderRadius: 10,
+    borderRadius: 22,
     flexDirection: 'row'
   },
   TextInputStyle: {
     flex: 1,
-    fontSize: 18,
-    fontWeight: 'bold'
+    fontSize: 16
   },
   IconStyle: {
     fontSize: 20,

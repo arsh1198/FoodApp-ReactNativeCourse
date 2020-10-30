@@ -16,7 +16,11 @@ const ReviewsList = ({ id }) => {
         keyExtractor={reviews => reviews.review.id}
         data={reviews}
         renderItem={({ item }) => {
-          return <ReviewsCard result={item} />
+          return (
+            <View style={{ padding: 4 }}>
+              <ReviewsCard result={item} />
+            </View>
+          )
         }}
       />
     </View>

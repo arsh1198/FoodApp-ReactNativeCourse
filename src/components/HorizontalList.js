@@ -34,7 +34,7 @@ const HorizontalList = ({ title, results, navigation }) => {
 const styles = StyleSheet.create({
   heading: {
     fontWeight: 'bold',
-    fontSize: 20,
+    fontSize: 22,
     paddingVertical: 10
   }
 })
