@@ -5,6 +5,10 @@ import { withNavigation } from 'react-navigation'
 import ResultDetails from './ResultDetails'
 
 const HorizontalList = ({ title, results, navigation }) => {
+  if (!results.length) {
+    return null
+  }
+
   return (
     <View style={{ paddingVertical: 5 }}>
       <Text style={styles.heading}>{title}</Text>

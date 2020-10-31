@@ -17,7 +17,7 @@ const ReviewsList = ({ id }) => {
         data={reviews}
         renderItem={({ item }) => {
           return (
-            <View style={{ padding: 4 }}>
+            <View style={{ paddingVertical: 4 }}>
               <ReviewsCard result={item} />
             </View>
           )
